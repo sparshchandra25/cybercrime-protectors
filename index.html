@@ -26,6 +26,44 @@
             --accent-success: #10B981;
             --border-color: #1E293B;
         }
+        .form-switch{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    }
+
+.form-switch input[type="checkbox"]{
+appearance:none;
+-webkit-appearance:none;
+width:42px;
+height:22px;
+background:#374151;
+border-radius:20px;
+position:relative;
+cursor:pointer;
+outline:none;
+transition:0.3s;
+}
+
+.form-switch input[type="checkbox"]:checked{
+background:#38BDF8;
+}
+
+.form-switch input[type="checkbox"]::before{
+content:"";
+position:absolute;
+width:18px;
+height:18px;
+background:white;
+border-radius:50%;
+top:2px;
+left:2px;
+transition:0.3s;
+}
+
+.form-switch input[type="checkbox"]:checked::before{
+left:22px;
+}
 
         body {
             font-family: 'Inter', sans-serif;
@@ -925,11 +963,11 @@
     </footer>
 
     <!-- Report Modal -->
-    <div id= "reportModal " class= "modal ">
+    <div id="reportModal" class="modal">
         <div class= "modal-content ">
             <div class= "modal-header ">
                 <div>
-                    <h2 class= "modal-title ">Report <span id= "modalCrimeType "></span></h2>
+                    <h2 class= "modal-title ">Report <span id="modalCrimeType"></span></h2>
                     <p style= "color: var(--text-secondary); margin-top: 0.5rem; ">Your report will be anonymous</p>
                 </div>
                 <button class= "modal-close " onclick= "closeReportModal() ">×</button>
