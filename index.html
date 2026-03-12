@@ -554,21 +554,29 @@ rgba(15,23,42,1)
             transform: scale(1.1);
         }
 
-        .chatbot-window {
-            display: none;
-            position: fixed;
-            bottom: 6rem;
-            right: 2rem;
-            width: 400px;
-            max-width: calc(100vw - 4rem);
-            height: 500px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 1rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            flex-direction: column;
-        }
+        .chatbot-window{
+position: fixed;
+bottom: 90px;
+right: 20px;
+width: 360px;
+height: 480px;
+background: linear-gradient(180deg,#0f172a,#020617);
+border: 1px solid rgba(255,255,255,0.05);
+border-radius: 16px;
+box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+display: none;
+flex-direction: column;
+overflow: hidden;
+z-index: 1000;
+}
+
+.chatbot-window.active{
+display:flex;
+}
+
+.chatbot-window.active{
+display: block;
+}
 
         .chatbot-window.active {
             display: flex;
@@ -582,14 +590,15 @@ rgba(15,23,42,1)
             align-items: center;
         }
 
-        .chatbot-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+        .chatbot-messages{
+flex:1;
+padding:16px;
+overflow-y:auto;
+display:flex;
+flex-direction:column;
+gap:10px;
+width:100%;
+}
 
         .chat-message {
             padding: 0.75rem;
@@ -616,8 +625,14 @@ rgba(15,23,42,1)
         }
 
         .chatbot-input input {
-            flex: 1;
+        flex: 1;
+        height: 40px;
         }
+
+        .chatbot-input button {
+        height: 40px;
+        padding: 0 16px;
+}
 
         /* Footer */
         .footer {
@@ -1030,23 +1045,23 @@ rgba(15,23,42,1)
     </div>
 
     <!-- Chatbot -->
-    <button class= "chatbot-toggle " onclick= "toggleChatbot() ">💬</button>
-    <div id= "chatbotWindow " class= "chatbot-window ">
-        <div class= "chatbot-header ">
-            <div style= "display: flex; align-items: center; gap: 0.5rem; ">
-                <div style= "width: 0.5rem; height: 0.5rem; background: var(--accent-success); border-radius: 50%; "></div>
+    <button class= "chatbot-toggle" onclick= "toggleChatbot()">💬</button>
+    <div id= "chatbotWindow" class= "chatbot-window">
+        <div class= "chatbot-header">
+            <div style= "display: flex; align-items: center; gap: 0.5rem;">
+                <div style= "width: 0.5rem; height: 0.5rem; background: var(--accent-success); border-radius: 50%;"></div>
                 <strong>Support Assistant</strong>
             </div>
-            <button class= "modal-close " onclick= "toggleChatbot() ">×</button>
+            <button class= "modal-close" onclick= "toggleChatbot() ">×</button>
         </div>
-        <div class= "chatbot-messages " id= "chatMessages ">
-            <div class= "chat-message bot ">
+        <div class= "chatbot-messages" id= "chatMessages">
+            <div class= "chat-message bot">
                 Hello! How can I help you today? Ask me about reporting crimes, anonymity, or emergency contacts.
             </div>
         </div>
-        <div class= "chatbot-input ">
-            <input type= "text " class= "form-input " id= "chatInput " placeholder= "Type your question... " onkeypress= "handleChatKeypress(event) ">
-            <button class= "btn btn-primary " onclick= "sendChatMessage() ">Send</button>
+        <div class= "chatbot-input">
+            <input type= "text" class= "form-input" id= "chatInput" placeholder= "Type your question..." onkeypress= "handleChatKeypress(event)">
+            <button class= "btn btn-primary" onclick= "sendChatMessage()">Send</button>
         </div>
     </div>
 
